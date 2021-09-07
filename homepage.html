@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <style>
+    html {
+      /*background:linear-gradient(to bottom, rgb(99, 120, 241) 10%, rgb(192, 147, 250) 60%);漸層*/
+      background-color: rgb(24, 24, 24);
+      height: 100vh;
+      display: -ms-grid;
+      display: grid;
+      place-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .menu {
+      position: relative;
+      top: 40px;
+      padding: 30px;
+      background: #e8e8f300;
+      border-radius: 100%;
+      cursor: pointer;
+      -webkit-transform: scale(2.2);/*menu放大*/
+      -webkit-box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+              box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3), 0px 0px 0px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+    }
+
+    .menu::before, .menu::after {
+      content: "";
+      background: #c3c2c7;
+      border-radius: 5px;
+      width: 30px;
+      height: 5px;
+      position: absolute;
+      left: 15px;
+      top: 27px;
+      -webkit-transition: 0.2s ease;
+      transition: 0.2s ease;
+      z-index: 1;
+    }
+
+    .menu::before {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+
+    .menu::after {
+      -webkit-transform: rotate(-90deg);
+              transform: rotate(-90deg);
+    }
+
+    .menu.open {
+      opacity: .9;
+    }
+
+    .menu.open::before {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
+
+    .menu.open::after {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+    }
+
+    .menu.open .button {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu.open .button:first-of-type {  /*first-of-type：同一種元素的第一個*/
+      bottom: 40px;
+      right: 70px;
+      background: url('market_research.svg') no-repeat 50%/50% #e8e8f3;
+    }
+
+    .menu.open .button:nth-of-type(2) { /*nth-of-type()：同一種元素裏頭的第幾個*/
+      bottom: 80px;
+      background: url('optimize.svg') no-repeat 50%/50% #e8e8f3;
+      -webkit-transition-delay: .05s;
+              transition-delay: .05s;
+    }
+    .menu.open .button:nth-of-type(3) {
+      bottom: -80px;
+      background: url('login.svg') no-repeat 50%/50% #e8e8f3;
+      -webkit-transition-delay: .05s;
+              transition-delay: .05s;
+    }
+
+    .menu.open .button:last-of-type {
+      bottom: 40px;
+      right: -70px;
+      background: url('line.svg')  no-repeat 50% 45%/50% 45% #e8e8f3;
+      -webkit-transition-delay: .1s;
+              transition-delay: .1s;
+    }
+
+    .button {
+      padding: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      background: #e8e8f3;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      -webkit-box-shadow: inherit;
+              box-shadow: inherit;
+      -webkit-transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) -webkit-transform;
+      transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) -webkit-transform;
+      transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
+      transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) -webkit-transform;
+    }
+
+    .button:hover {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+
+    .button {
+      padding: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      background: #e8e8f3;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      -webkit-box-shadow: inherit;
+              box-shadow: inherit;
+      -webkit-transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) -webkit-transform;
+      transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) -webkit-transform;
+      transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform;
+      transition: 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), 0.2s ease opacity, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) transform, 0.2s cubic-bezier(0.08, 0.82, 0.17, 1) -webkit-transform;
+    }
+
+    .button:hover {
+      -webkit-transform: scale(1.5); /*變大*/
+              transform: scale(1.5);        
+    }
+    div[data-node]:hover:after {
+      opacity: 1;
+      transition: all 0.1s ease 0.5s;
+      visibility: visible;
+    }
+    div[data-node]:after {
+        content: attr(data-node);
+        background-color: #0051ff00;
+        color: rgb(255, 255, 255);
+        font-size: 80%;
+        position: absolute;
+        left: -30%;
+        top: -10%;
+        white-space: nowrap;
+        box-shadow: 0px 0px 0px #222222;
+        opacity: 0;
+        border: 0px solid #111111;
+        z-index: 99999;
+        visibility: hidden;
+    }
+    /* 行動裝置版 */
+    
+    @media only screen and (max-width: 767px) {  /*zoomin 300%*/
+        html{
+          width: 100%;
+          margin: 0 auto;
+          height: 100%;
+        }
+        .menu {
+        position: relative;
+        top: 10px;
+        padding: 30px;
+        background: #e8e8f300;
+        border-radius: 100%;
+        cursor: pointer;
+        -webkit-transform: scale(1.0);/*menu放大*/
+        -webkit-box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3), 0px 0px 0px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        }
+      }   
+                    
+      @media only screen and (max-width: 480px) { 
+        html{
+          width: 100%;
+          margin: 0 auto;
+          height: 50%;
+        }
+        .menu {
+        position: relative;
+        top: 5px;
+        padding: 30px;
+        background: #e8e8f300;
+        border-radius: 100%;
+        cursor: pointer;
+        -webkit-transform: scale(0.6);/*menu放大*/
+        -webkit-box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3), 0px 0px 0px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        }
+      } 
+          
+        @media only screen and (min-width: 768px) and (max-width: 979px) {  /*zoomin 200%*/
+          html{
+          width: 100%;
+          margin: 0 auto;
+          height: 100%;
+        }
+        .menu {
+        position: relative;
+        top: 20px;
+        padding: 30px;
+        background: #e8e8f300;
+        border-radius: 100%;
+        cursor: pointer;
+        -webkit-transform: scale(1.7);/*menu放大*/
+        -webkit-box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3), 0px 0px 0px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        }
+            }
+            
+            
+        @media only screen and (min-width: 980px) { /*175%*/
+          html{
+          width: 100%;
+          margin: 0 auto;
+          height: 100%;
+        }
+        .menu {
+        position: relative;
+        top: 40px;
+        padding: 30px;
+        background: #e8e8f300;
+        border-radius: 100%;
+        cursor: pointer;
+        -webkit-transform: scale(2.0);/*menu放大*/
+        -webkit-box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3), 0px 0px 0px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        }
+           
+            }
+            
+            
+        @media only screen and (min-width: 1200px) {
+        html{
+          width: 100%;
+          margin: 0 auto;
+          height: 100%;
+        }
+        .menu {
+        position: relative;
+        top: 40px;
+        padding: 30px;
+        background: #e8e8f300;
+        border-radius: 100%;
+        cursor: pointer;
+        -webkit-transform: scale(2.2);/*menu放大*/
+        -webkit-box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.3), 0px 0px 0px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+        }
+           
+         
+    }
+
+    
+    </style>
+    </head>
+    <div class="out">
+    <div class="menu" onclick="this.classList.toggle('open')">
+      <div class="button" onclick="location.href='test.html';" data-node="選股"></div>
+      <div class="button" onclick="location.href='test2.html';" data-node="回測"></div>
+      <div class="button" onclick="location.href='login.html';" data-node="登入"></div>
+      <div class="button" onclick="location.href='linebot.html';" data-node=""></div> 
+    </div>
+    </div>
+</html>    
+   

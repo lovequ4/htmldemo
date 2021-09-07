@@ -1,0 +1,107 @@
+<!doctype html>
+<!-- {% load static %} -->
+<html>
+    <head>
+        <style>
+        @media only screen and (max-width: 480px) { /* // 如果使用者視窗寬度 <= 480px，將字體大小變為  */
+            #div0 {
+                font-size: 8px;
+                color: #FFF;
+                width: 500px auto;
+                margin: 0 auto;
+            }
+            #divtop{
+                padding-right: 1600px;
+                text-align: center;
+            }
+            }
+        @media only screen and (max-width: 768px) { /* // 如果使用者視窗寬度 <= 768px，將字體大小變為  */
+            #div0 {
+                font-size: 13px;
+                color: #FFF;
+                width: 500px;
+                margin: 0 auto;
+            }
+            }
+        @media only screen and (min-width: 768px) and (max-width: 1200px) {/* // 如果使用者視窗寬度介於 768px ~ 992px，將字體大小變為 */
+            #div0 {
+                font-size: 15px;
+                color: #FFF;
+            }
+            }
+        @media only screen and (min-width: 1200px) {/* // 如果使用者視窗寬度 >= 1200px，將字體大小變為 */
+            #div0 {
+                font-size: 20px;
+                color: #FFF;
+            }
+            }    
+                html{
+                    background-color: rgb(24, 24, 24);
+                    height: 100vh;
+                    display: -ms-grid;
+                    display: grid;
+                    place-content: center;
+                    -webkit-tap-highlight-color: transparent;
+                    color:#fff;
+                }
+                #userpwd{
+                    width: 350px;
+                    font-size: 20px;
+                    border: 4mm ridge rgb(121, 121, 121); 
+                    padding: 30px;
+                    margin: 30px;
+                }
+                label{
+                    margin-left: 15px;
+                }
+                input{
+                    font-size: 20px;
+                    border-radius: 5px;
+                }
+                button{
+                    font-size: 20px;
+                }
+                .button1,.button2 {
+                    width: 100px;
+                    height: 45px;
+                    font-family: 'Microsoft JhengHei';
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    letter-spacing: 2.5px;
+                    font-weight: 500;
+                    color: rgb(255, 255, 255);
+                    background-color: #5a5a5a;
+                    border: none;
+                    border-radius: 45px;
+                    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease 0s;
+                    cursor: pointer;
+                    outline: none;
+                    margin-top: 20px;
+                    margin-left: 50px;
+                }
+
+                .button1:hover,.button2:hover {
+                    background-color: #2e2e2e;
+                    box-shadow: 0px 15px 20px rgb(0, 0, 0);
+                    color: #fff;
+                    transform: translateY(-7px);
+                }
+                
+               
+        </style>    
+    </head>
+    <body>
+        <h1 style="text-align: center;">使用者登入</h1>
+        <div id="userpwd">
+            <label for="user">帳號：</label>
+            <input type="text" id="name1"><br><br>
+            <label for="pwd">密碼：</label>
+            <input type="password" id="pwd1"><br><br>
+            <div id="btnsb" >
+                <button class="button1" onclick="">登入</button>
+                <button class="button2" onclick="">註冊</button>
+            </div>
+        </div>
+    </body>            
+</html>

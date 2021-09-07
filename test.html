@@ -1,0 +1,396 @@
+<!DOCTYPE style>
+<!-- {% load static %} -->
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"> <!--RWD -->
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bg.css' %}">
+        <style>
+                 h1{
+                    margin-top: 10px;
+                    color:rgb(255, 255, 255)
+                } 
+                #div0 {
+                    width: 0 auto;
+                    margin: 0 auto;
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-family: 'Microsoft JhengHei';
+                    text-align: center;
+                    width: 50em;
+                    border: 4mm ridge rgb(121, 121, 121); 
+                    /* box-shadow: 12px 12px 12px 12px rgb(255, 255, 255); */
+                    padding: 8px 12px;
+                    /* -webkit-box-shadow: 0 0 20px #ffffff;
+                    -moz-box-shadow: 0 0 20px #ffffff; */
+                    /* box-shadow: 0 0 20px #ff0000; */
+                }
+                ul {
+                    list-style-type: none;
+                    margin: 0px;  /*去除選單邊距*/
+                    padding: 0px;
+                    float: center;
+                    margin-top: 20px;
+                }
+                li {
+                    list-style-type: none;
+                    margin: 0px auto;  /*去除選單邊距*/
+                    padding: 0px auto;
+                    
+                }
+                #divtop{
+                    padding-right: 140px;
+                    text-align: center;
+                }
+                .btnsb {
+                    height: 100%;
+                    display: flex;
+                    align-items: right;
+                    justify-content: right;
+                }
+
+                .button1 {
+                    width: 140px;
+                    height: 45px;
+                    font-family: 'Microsoft JhengHei';
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    letter-spacing: 2.5px;
+                    font-weight: 500;
+                    color: rgb(255, 255, 255);
+                    background-color: #5a5a5a;
+                    border: none;
+                    border-radius: 45px;
+                    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease 0s;
+                    cursor: pointer;
+                    outline: none;
+                    margin-top: 50px;
+                    float: right;
+                }
+
+                .button1:hover {
+                    background-color: #2e2e2e;
+                    box-shadow: 0px 15px 20px rgb(0, 0, 0);
+                    color: #fff;
+                    transform: translateY(-7px);
+                }
+                #stdate,#enddate{
+                    font-size: 18px;
+                }
+                #sltLiquidity,#sltQuickRatio,#sltGrossmargin,#sltOperatingprofitratio,#sltROE,#sltRevenueturnoverrate,#sltDebtratio,#sltPEratio,#sltPricetonetratio,#sltRevenuegrowthrate,#sltNetprofitgrowthrate{
+                    font-size: 17px;
+                }
+                #textLiquidity,#textQuickRatio,#textGrossmargin,#textOperatingprofitratio,#textROE,#textRevenueturnoverrate,#textDebtratio,#textPEratio,#textPricetonetratio,#textRevenuegrowthrate,#textNetprofitgrowthrate{
+                    font-size: 17px;
+                }
+                input[type=checkbox]{
+                    -webkit-transform: scale(1.5); /*放大選項框*/
+                    user-select: none; /* 防止文字被滑鼠選取反白 */
+                    margin: 10px;
+                    cursor: pointer;
+                    /* opacity: .5; 透明度*/
+                }
+                input[type="checkbox"]:checked{
+                    box-shadow: 0 0 0 2px #4dc9fa; /*點選後出現邊框顏色*/
+                    /* opacity: 1.0; */
+                }
+                input[type="checkbox"]:checked::after{
+                    background-color: lawngreen;
+                }
+                .c1 { filter: hue-rotate(0deg)   } /*濾鏡效果(更改後面參數，改變顏色)*/
+                .c2 { filter: hue-rotate(30deg)  }
+                .c3 { filter: hue-rotate(60deg)  }
+                .c4 { filter: hue-rotate(90deg)  }
+                .c5 { filter: hue-rotate(120deg) }
+                .c6 { filter: hue-rotate(150deg) }
+                .c7 { filter: hue-rotate(180deg) }
+                .c8 { filter: hue-rotate(230deg) }
+                .c9 { filter: hue-rotate(270deg) }
+                .c10 { filter: hue-rotate(690deg) }
+                .c11 { filter: hue-rotate(770deg) } 
+                html {
+                  /*background:linear-gradient(to bottom, rgb(99, 120, 241) 10%, rgb(192, 147, 250) 90%);漸層*/
+                  background-color: rgb(24, 24, 24);
+                  display: -ms-grid;
+                  display: grid;
+                  place-content: center;
+                  -webkit-tap-highlight-color: transparent;
+                }
+                @media only screen and (max-width: 767px) {  /*zoomin 300%*/
+                #div0 {
+                    width: 500px;
+                    height: 1000px;
+                    font-size: 20px;
+                    color: #FFF;
+                    border: 4mm ridge rgb(121, 121, 121);
+                    display:flex;/*宣告為彈性佈局元素*/
+                    flex-direction: column ; /*垂直上到下*/
+                    align-items: stretch; /*align-items 則是用來定義元素在相交軸上的對齊方式*/
+                    justify-content:space-evenly; /*將剩下的空間平均分佈在每個元素(包含軸線的起點和終點)之間*/
+                }
+                .button1{
+                    margin-right: 40%;
+                }
+                h1{
+                    margin-top: -10px;
+                    margin-bottom: 5px;
+                }
+                #btn{
+                    margin-top: 50px;
+                    margin-bottom: 0px;
+                }
+                .h41{
+                    margin-top: 30px;
+                }
+                .h42{
+                    margin-bottom: 10px;
+                    margin-top: 50px;
+                }
+                }
+           
+                    
+            @media only screen and (max-width: 480px) { 
+                #div0 {
+                    margin-left: 50px;
+                    width: 500px;
+                    height: 1000px;
+                    font-size: 20px;
+                    color: #FFF;
+                    border: 4mm ridge rgb(121, 121, 121);
+                    display:flex;/*宣告為彈性佈局元素*/
+                    flex-direction: column ; /*垂直上到下*/
+                    align-items: stretch; /*align-items 則是用來定義元素在相交軸上的對齊方式*/
+                    justify-content:space-evenly; /*將剩下的空間平均分佈在每個元素(包含軸線的起點和終點)之間*/
+                }
+                
+                .button1{
+                    margin-right: 40%;
+                }
+                h1{
+                    margin-top: -10px;
+                    margin-bottom: 5px;
+                }
+                #btn{
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                .h41{
+                    margin-top: 30px;
+                }
+                .h42{
+                    margin-bottom: 10px;
+                    margin-top: 50px;
+                }
+                }
+            @media only screen and (min-width: 768px) and (max-width: 979px) {  /*zoomin 200%*/
+
+                #div0 {
+                    width: 500px;
+                    height: 1000px;
+                    font-size: 20px;
+                    color: #FFF;
+                    border: 4mm ridge rgb(121, 121, 121);
+                    display:flex;/*宣告為彈性佈局元素*/
+                    flex-direction: column ; /*垂直上到下*/
+                    align-items: stretch; /*align-items 則是用來定義元素在相交軸上的對齊方式*/
+                    justify-content:space-evenly; /*將剩下的空間平均分佈在每個元素(包含軸線的起點和終點)之間*/
+                }
+
+                .button1{
+                    margin-right: 40%;
+                }
+                }
+                                
+            @media only screen and (min-width: 980px) {
+                #div0 {
+                    width: 1000px;
+                    height: 800px;
+                    font-size: 20px;
+                    color: #FFF;
+                    border: 4mm ridge rgb(121, 121, 121);
+                    display:flex;/*宣告為彈性佈局元素*/
+                    flex-direction: column; /*水平由左至右*/
+                    align-items: stretch; /*align-items 則是用來定義元素在相交軸上的對齊方式*/
+                    justify-content:space-evenly; /*將剩下的空間平均分佈在每個元素(包含軸線的起點和終點)之間*/
+                }
+                h1{
+                    margin-top: -10px;
+                    margin-bottom: 5px;
+                }
+                #btn{
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                .h41{
+                    margin-top: 30px;
+                }
+                .h42{
+                    margin-bottom: 10px;
+                    margin-top: 50px;
+                }
+                .button1{
+                    margin-right: 45%;
+                }
+                }
+                
+                
+            @media only screen and (min-width: 1200px) {
+                #div0 {
+                    width: 1000px;
+                    height: 800px;
+                    font-size: 20px;
+                    color: #FFF;
+                    border: 4mm ridge rgb(121, 121, 121);
+                    display:flex;/*宣告為彈性佈局元素*/
+                    flex-direction: column; 
+                    align-items: center; /*align-items 則是用來定義元素在相交軸上的對齊方式*/
+                    justify-content:center; 
+                }
+
+                h1{
+                    margin-top: -10px;
+                    margin-bottom: 5px;
+                }
+                #btn{
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+                .h41{
+                    margin-top: 30px;
+                }
+                .h42{
+                    margin-bottom: 10px;
+                    margin-top: 50px;
+                }
+                .button1{
+                    margin-right: 5%;
+                }
+                }
+        </style> 
+           
+    </head> 
+   <!--  <body id="bg" style="background-image: url('{% static "myapp/images/bgi2.jpg"%}');"> -->
+    <body>    
+        <h1 style="text-align: center;">智能選股系統</h1><br>
+        <div id="div0">
+            <h4 class="h41">STEP 1:設定期間範圍</h4>   
+            <div id="divtop">
+                <label>起始日:</label>
+                <input type="date" id="stdate" ><br><br><!--&emsp;全形空格-->
+                <label>終止日:</label>
+                <input type="date" id="enddate" >
+            </div>
+            <h4 class="h42">STEP 2:設定選股條件</h4>
+            <div id="div1">
+                    <ul>
+                        <li>
+                            <span class="css-checkbox">變現能力&emsp;&emsp;
+                            <input id="Liquidity" type="checkbox" class="c1"/>流動比率</span>&emsp;
+                            <select name="sltLiquidity" id="sltLiquidity">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textLiquidity" maxlength="1" size="1">&emsp;%    <!--size:input寬度 maxlength=輸入字元長度-->
+                        <li>
+                            <span class="css-checkbox">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <input id="QuickRatio" type="checkbox" class="c2"/>速動比率</span>&emsp;
+                            <select name="sltQuickRatio" id="sltQuickRatio">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textQuickRatio" maxlength="1" size="1">&emsp;%
+            </div>	 
+            <div id="div2">
+                    <ul>
+                        <li>
+                            <span class="css-checkbox">獲利能力&emsp;&emsp;
+                            <input id="Grossmargin" type="checkbox" class="c3"/>毛利率</span>&emsp;&emsp;
+                            <select name="sltGrossmargin" id="sltGrossmargin">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textGrossmargin" maxlength="1" size="1">&emsp;%    <!--size:input寬度 maxlength=輸入字元長度-->
+                        <li>
+                            <span class="css-checkbox">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <input id="Operatingprofitratio" type="checkbox" class="c4"/>營業利益率</span>
+                            <select name="sltOperatingprofitratio" id="sltOperatingprofitratio">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textOperatingprofitratio" maxlength="1" size="1">&emsp;%
+                        <li>
+                            <span class="css-checkbox">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <input id="ROE" type="checkbox" class="c5"/>ROE</span>&emsp;&emsp;&emsp;
+                            <select name="sltROE" id="sltROE">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textROE" maxlength="1" size="1">&emsp;%
+                        <li>
+                            <span class="css-checkbox">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <input id="Revenueturnoverrate" type="checkbox" class="c6"/>營收周轉率</span>
+                            <select name="sltRevenueturnoverrate" id="sltRevenueturnoverrate">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textRevenueturnoverrate" maxlength="1" size="1">&emsp;%        
+            </div>
+            <div id="div3">
+                    <ul>
+                        <li>
+                            <span class="css-checkbox">安全性&emsp;&emsp;&emsp;
+                            <input id="Debtratio" type="checkbox" class="c7"/>負債比率</span>&emsp;
+                            <select name="sltDebtratio" id="sltDebtratio">
+                            <option value="1">小於</option>
+                            <!-- <option value="2">大於</option> -->
+                            </select>&emsp;
+                            <input type="text" id="textDebtratio" maxlength="1" size="1">&emsp;%    
+            </div>
+            <div id="div4">
+                    <ul>
+                        <li>
+                            <span class="css-checkbox">市場價值&emsp;&emsp;
+                            <input id="PEratio" type="checkbox" class="c8"/>本益比</span>&emsp;&emsp;
+                            <select name="sltPEratio" id="sltPEratio">
+                            <option value="1">小於</option>
+                            <!-- <option value="2">大於</option> -->
+                            </select>&emsp;
+                            <input type="text" id="textPEratio" maxlength="1" size="1">&emsp;倍    
+                        <li>
+                            <span class="css-checkbox">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <input id="Pricetonetratio" type="checkbox" class="c9"/>股價淨值比</span>
+                            <select name="sltPricetonetratio" id="sltPricetonetratio">
+                            <option value="1">小於</option>
+                            <!-- <option value="2">大於</option> -->
+                            </select>&emsp;
+                            <input type="text" id="textPricetonetratio" maxlength="1" size="1">&emsp;倍
+            </div>
+            <div id="div5">
+                    <ul>
+                        <li>
+                            <span class="css-checkbox">成長性&emsp;&emsp;&emsp;
+                            <input id="Revenuegrowthrate" type="checkbox" class="c10"/>營收成長率</span>
+                            <select name="sltRevenuegrowthrate" id="sltRevenuegrowthrate">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textRevenuegrowthrate" maxlength="1" size="1">&emsp;%    
+                        <li>
+                            <span class="css-checkbox">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <input id="Netprofitgrowthrate" type="checkbox" class="c11"/>淨利成長率</span>
+                            <select name="sltNetprofitgrowthrate" id="sltNetprofitgrowthrate">
+                            <option value="1">大於</option>
+                            <option value="2">小於</option>
+                            </select>&emsp;
+                            <input type="text" id="textNetprofitgrowthrate" maxlength="1" size="1">&emsp;%
+            </div>
+            <div id="btnsb" >
+                <button class="button1" id="btn" onclick="">開始選股</button>
+                <div id="result"> </div>
+            </div>
+        </div>
+        <script>
+
+        </script>    
+    </body>    
+</html>    
